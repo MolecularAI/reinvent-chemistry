@@ -1,0 +1,17 @@
+__pycache__
+*.pyc
+package.json
+.vscode
+tags
+.idea
+
+dist
+build
+
+# Coverage.py output
+.coverage
+htmlcov/
+
+# Python memory_profiler output
+mprofile_*.dat
+/reinvent_chemistry.egg-info/
