@@ -1,0 +1,2 @@
+from unittest_reinvent.utils_tests.test_unique_smiles import TestUtilsUniqueSmiles
+from unittest_reinvent.utils_tests.test_unique_seqs import TestUtilsUniqueSeqs

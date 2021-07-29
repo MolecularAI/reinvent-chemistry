@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="reinvent_chemistry",
-    version="0.0.32",
+    version="0.0.38",
     author="MolecularAI",
     author_email="patronov@gmail.com",
     description="Chemistry functions for Reinvent",

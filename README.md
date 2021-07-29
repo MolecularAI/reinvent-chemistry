@@ -1,12 +1,29 @@
+# Introduction
 This package contains the chemistry functions for REINVENT.
+
+# Installation
 To install in REINVENT's environment either install from repo or use `pip install reinvent-chemistry` for the latest
 official release.
 
-For development use the enclosed environment.yml
+# Developing
+## Setup environment
+You can use Conda to create an environment with all the necessary packages installed.
 
+```
+$ conda env create -f reinvent_models
+[...]
+$ conda activate reinvent_chemistry
+```
 
-Building: python setup.py sdist bdist_wheel
+## Run tests
+The tests use the `unittest` package testing framework; you can run the tests, located in the 
+`unittest_reinvent` directory, by running
 
-Upload build to test: python -m twine upload --repository testpypi dist/*
+```
+$ python main_test.py
+```
 
-Upload build: python -m twine upload dist/*
+# Building
+- Building: `python setup.py sdist bdist_wheel`
+- Upload build to test: `$python -m twine upload --repository testpypi dist/*`
+- Upload build: `python -m twine upload dist/*`

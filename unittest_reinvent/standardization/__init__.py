@@ -1,0 +1,10 @@
+from unittest_reinvent.standardization.test_rdkit_standardizer import TestRDKitStandardizer
+from unittest_reinvent.standardization.test_rdkit_standardizer_no_config import TestRDKitStandardizerNoConfig
+from unittest_reinvent.standardization.test_rdkit_standardizer_aliphatic_filter import \
+    TestRDKitStandardizerAliphaticFilter
+from unittest_reinvent.standardization.test_rdkit_standardizer_vocabulary_filter import \
+    TestRDKitStandardizerVocabularyFilter
+from unittest_reinvent.standardization.test_rdkit_standardizer_default_long_aliphatic_off import \
+    TestRDKitStandardizerDefaultLongAliphaticOff
+from unittest_reinvent.standardization.test_rdkit_standardizer_default_long_aliphatic_on import \
+    TestRDKitStandardizerDefaultLongAliphaticOn
