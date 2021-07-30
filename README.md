@@ -10,7 +10,7 @@ official release.
 You can use Conda to create an environment with all the necessary packages installed.
 
 ```
-$ conda env create -f reinvent_models
+$ conda env create -f reinvent_chemistry
 [...]
 $ conda activate reinvent_chemistry
 ```
