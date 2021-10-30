@@ -11,7 +11,7 @@ setuptools.setup(
     description="Chemistry functions for Reinvent",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://bitbucket.astrazeneca.net/scm/com/reinvent_chemistry.git",
+    url="",
     packages=setuptools.find_packages(exclude='unittest_reinvent'),
     classifiers=[
         "Programming Language :: Python :: 3",
