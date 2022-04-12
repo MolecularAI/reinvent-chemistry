@@ -11,7 +11,7 @@ class TestNonSelectiveReactionFilter(BaseTestReactionFilter):
 
     def setUp(self):
         self.type = ReactionFiltersEnum().NON_SELECTIVE
-        self.reactions = {"0": [REACTION_SUZUKI]}
+        self.reactions = [[REACTION_SUZUKI]]
         super().setUp()
 
     def test_with_suzuki_reagents(self):

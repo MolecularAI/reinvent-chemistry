@@ -1,3 +1,4 @@
-from unittest_reinvent.chemistry.test_descriptors import *
-from unittest_reinvent.chemistry.test_general_chemistry import *
-from unittest_reinvent.chemistry.test_similarity import *
+from unittest_reinvent.chemistry.test_descriptors import TestEqualityOfTwoCountsDescriptors
+from unittest_reinvent.chemistry.test_general_chemistry import Test_general_chemistry
+from unittest_reinvent.chemistry.test_similarity import Test_similarity
+from unittest_reinvent.chemistry.test_phys_chem_descriptors import TestPhysChemDescriptors

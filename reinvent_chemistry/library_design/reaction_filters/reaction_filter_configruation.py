@@ -1,9 +1,9 @@
 from dataclasses import dataclass
-from typing import List, Dict
+from typing import List
 
 
 @dataclass
 class ReactionFilterConfiguration:
     type: str
-    reactions: Dict[str, List[str]]
+    reactions: List[List[str]]
     reaction_definition_file: str = None

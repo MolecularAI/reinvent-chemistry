@@ -11,7 +11,7 @@ class BondMaker:
         self._tokens = TransformationTokens()
         self._attachment_points = AttachmentPoints()
 
-    def join_scaffolds_and_decorations(self, scaffold_smi: str, decorations_smi):
+    def join_scaffolds_and_decorations(self, scaffold_smi: str, decorations_smi, keep_labels_on_atoms=False):
         decorations_smi = [self._attachment_points.add_first_attachment_point_number(dec, i)
                            for i, dec in enumerate(decorations_smi.split(self._tokens.ATTACHMENT_SEPARATOR_TOKEN))]
         num_attachment_points = len(self._attachment_points.get_attachment_points(scaffold_smi))
@@ -20,7 +20,8 @@ class BondMaker:
 
         mol = self._conversions.smile_to_mol(scaffold_smi)
         for decoration in decorations_smi:
-            mol = self.join_molecule_fragments(mol, self._conversions.smile_to_mol(decoration))
+            mol = self.join_molecule_fragments(mol, self._conversions.smile_to_mol(decoration),
+                                               keep_label_on_atoms=keep_labels_on_atoms)
             if not mol:
                 return None
         return mol
@@ -104,6 +105,10 @@ class BondMaker:
         idxs.append(str(idx))
         idxs = sorted(list(set(idxs)))
         atom.SetProp("molAtomMapNumber", ",".join(idxs))
+        # Fixme: This way of annotating fails in case of several attachment points when the mol is converted back to a
+        #  SMILES string (RuntimeError: boost::bad_any_cast: failed conversion using boost::any_cast)
+        #  For example combining scaffold '*C(*)CC' and  warhead pair '*OC|*C' would result in
+        #  C[O:0][CH:0,1]([CH3:1])CC, which results in an error due to the '0,1'
 
     def randomize_scaffold(self, scaffold: Mol):
         smi = self._conversions.mol_to_random_smiles(scaffold)

@@ -17,10 +17,10 @@ class DefinedSelectiveFilter(BaseReactionFilter):
 
     def _configure_reactions(self, reaction_names: Dict[str, List[str]]):
         reactions = {}
-        for key, name_list in reaction_names.items():
+        for idx, name_list in enumerate(reaction_names):
             smarts_list = [self._reactions_library.get_reaction_definition(name) for name in name_list]
             converted = self._chemistry.create_reactions_from_smarts(smarts_list)
-            reactions[int(key)] = converted
+            reactions[idx] = converted
         return reactions
 
     def evaluate(self, molecule):

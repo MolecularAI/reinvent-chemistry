@@ -15,9 +15,9 @@ class SelectiveFilter(BaseReactionFilter):
 
     def _configure_reactions(self, reaction_smarts: Dict[str, List[str]]):
         reactions = {}
-        for key, smarts_list in reaction_smarts.items():
+        for idx, smarts_list in enumerate(reaction_smarts):
             converted = self._chemistry.create_reactions_from_smarts(smarts_list)
-            reactions[int(key)] = converted
+            reactions[idx] = converted
         return reactions
 
     def evaluate(self, molecule):

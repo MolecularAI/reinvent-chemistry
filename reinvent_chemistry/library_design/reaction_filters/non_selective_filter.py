@@ -16,7 +16,7 @@ class NonSelectiveFilter(BaseReactionFilter):
 
     def _configure_reactions(self, reaction_smarts: Dict[str, List[str]]) -> List[ChemicalReaction]:
         all_reactions = []
-        for smirks in reaction_smarts.values():
+        for smirks in reaction_smarts:
             reactions = self._chemistry.create_reactions_from_smarts(smirks)
             all_reactions.extend(reactions)
         return reactions

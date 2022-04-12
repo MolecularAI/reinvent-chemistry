@@ -1,0 +1,4 @@
+from unittest_reinvent.link_invent.test_bond_breaker import TestBondBreaker
+from unittest_reinvent.link_invent.test_linker_descriptor import TestLinkerDescriptors
+from unittest_reinvent.link_invent.test_molecule_with_highlighting import TestMoleculeWithHighlighting
+from unittest_reinvent.link_invent.test_attachment_point_modifier import TestAttachmentPointModifier

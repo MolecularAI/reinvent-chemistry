@@ -1,3 +1,4 @@
+from unittest_reinvent.library_design.aizynth import TestAiZynthClient
 from unittest_reinvent.library_design.reaction_definitions import TestStandardDefinitions, TestBuildingBlocks
 from unittest_reinvent.library_design.reaction_filters import *
 from unittest_reinvent.library_design.test_attachment_points import TestAttachmentPoints

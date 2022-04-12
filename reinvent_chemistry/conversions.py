@@ -1,10 +1,11 @@
 import random
 from typing import List, Tuple
 
-from rdkit.Chem import AllChem, MolFromSmiles, MolToSmiles, MolStandardize
+from rdkit.Chem import AllChem, MolFromSmiles, MolToSmiles, MolStandardize, MolToInchiKey
 from rdkit.Chem.rdchem import Mol
 from rdkit.Chem.rdmolops import RenumberAtoms
 from rdkit.DataStructs.cDataStructs import UIntSparseIntVect
+from rdkit.Chem import SDWriter
 
 
 class Conversions:
@@ -104,3 +105,15 @@ class Conversions:
             random.shuffle(new_atom_order)
             random_mol = RenumberAtoms(mol, newOrder=new_atom_order)
             return MolToSmiles(random_mol, canonical=False, isomericSmiles=False)
+
+    def mol_to_inchi_key(self, molecule: Mol) -> str:
+        """ Returns the standard InChI key for a molecule """
+        if molecule:
+            inchi_key = MolToInchiKey(molecule)
+            return inchi_key
+
+    def mol_to_sdf(self, molecules: List, input_sdf_path: str):
+        """ Write a set of molecules to sdf file"""
+        writer = SDWriter(input_sdf_path)
+        for mol in molecules:
+            writer.write(mol)

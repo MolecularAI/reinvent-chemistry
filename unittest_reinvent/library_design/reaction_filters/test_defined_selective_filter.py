@@ -17,7 +17,7 @@ class TestDefinedSelectiveFilterSingleReaction(unittest.TestCase):
         self._bond_maker = BondMaker()
         self._attachment_points = AttachmentPoints()
         self._enum = ReactionFiltersEnum()
-        reactions = {"0": [REACTION_SUZUKI_NAME]}
+        reactions = [[REACTION_SUZUKI_NAME]]
         configuration = ReactionFilterConfiguration(type=self._enum.DEFINED_SELECTIVE,
                                                     reactions=reactions,
                                                     reaction_definition_file=REACTION_DEFINITIONS_PATH)
@@ -45,7 +45,7 @@ class TestDefinedSelectiveFilter(unittest.TestCase):
         self._bond_maker = BondMaker()
         self._attachment_points = AttachmentPoints()
         self._enum = ReactionFiltersEnum()
-        reactions = {"0": [REACTION_SUZUKI_NAME], "1": [REACTION_SUZUKI_NAME]}
+        reactions = [[REACTION_SUZUKI_NAME], [REACTION_SUZUKI_NAME]]
         configuration = ReactionFilterConfiguration(type=self._enum.DEFINED_SELECTIVE, reactions=reactions,
                                                     reaction_definition_file=REACTION_DEFINITIONS_PATH)
         self.reaction_filter = ReactionFilter(configuration)

@@ -3,7 +3,7 @@ import unittest
 from rdkit import Chem
 from reinvent_chemistry import Conversions
 from unittest_reinvent.fixtures.test_data import INVALID, ASPIRIN2, METHYL_3_O_TOLYL_PROPYL_AMINE, \
-    METHYL_3_O_TOLYL_PROPYL_AMINE2, CELECOXIB2
+    METHYL_3_O_TOLYL_PROPYL_AMINE2, CELECOXIB2, ASPIRIN_INCHI_KEY, CELECOXIB_INCHI_KEY
 
 
 class Test_general_chemistry(unittest.TestCase):
@@ -14,6 +14,7 @@ class Test_general_chemistry(unittest.TestCase):
         self.stereo_smiles = METHYL_3_O_TOLYL_PROPYL_AMINE2
         self.non_stereo_smiles = METHYL_3_O_TOLYL_PROPYL_AMINE
         self.mols = [Chem.MolFromSmiles(smile) for smile in [CELECOXIB2, ASPIRIN2]]
+        self.inchi_keys = [ASPIRIN_INCHI_KEY, CELECOXIB_INCHI_KEY]
 
     def test_smiles_to_mols_and_indices(self):
         mols, indices = self.chemistry.smiles_to_mols_and_indices(self.smiles)
@@ -57,3 +58,7 @@ class Test_general_chemistry(unittest.TestCase):
         smiles = self.chemistry.mol_to_smiles(mols)
 
         self.assertEqual(self.non_stereo_smiles, smiles)
+
+    def test_mol_to_inchi_key(self):
+        inchi_keys = [self.chemistry.mol_to_inchi_key(mol) for mol in self.mols]
+        self.assertEqual(self.inchi_keys, inchi_keys)

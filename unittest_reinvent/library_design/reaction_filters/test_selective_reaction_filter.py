@@ -11,7 +11,7 @@ class TestSelectiveReactionFilter(BaseTestReactionFilter):
 
     def setUp(self):
         self.type = ReactionFiltersEnum().SELECTIVE
-        self.reactions = {"0": [REACTION_SUZUKI], "1": [REACTION_SUZUKI]}
+        self.reactions = [[REACTION_SUZUKI], [REACTION_SUZUKI]]
         super().setUp()
 
     def test_two_attachment_points_with_suzuki_reagents(self):
