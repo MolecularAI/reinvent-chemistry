@@ -1,3 +1,5 @@
+**Please note: this repository is no longer being maintained.**
+
 # Introduction
 This package contains the chemistry functions for REINVENT.
 
